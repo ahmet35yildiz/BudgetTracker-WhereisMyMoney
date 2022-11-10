@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">BudgetTracker - WhereisMyMoney</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="radioButtonIncome">Income</string>
+    <string name="radioButtonExpense">Expense</string>
+    <string name="chipSalary">Salary</string>
+    <string name="chipInvestment">Investment</string>
+    <string name="chipBonus">Bonus</string>
+    <string name="chipAllowance">Allowance</string>
+    <string name="editTextAmountHint">Amount</string>
+    <string name="chipFood">Food</string>
+    <string name="chipSelfDevelopment">Self Development</string>
+    <string name="chipBill">Bill</string>
+    <string name="chipShopping">Shopping</string>
+    <string name="chipEntertainment">Entertainment</string>
+    <string name="chipHoliday">Holiday</string>
+    <string name="chipHealth">Health</string>
+    <string name="chipTransportationFee">Transportation Fee</string>
+    <string name="chipKids">Kids</string>
+    <string name="chipOther">Other</string>
+    <string name="buttonSave">Save</string>
+    <string name="editTextDescriptionHint">Description</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/drawable/calendar_vector.xml" value="0.2125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/drawable/homepage_vector.xml" value="0.2125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/drawable/ic_round_add_circle_24.xml" value="0.2125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/drawable/new_vector.xml" value="0.2125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/drawable/reminder_vector.xml" value="0.2125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_homepage.xml" value="0.371875" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_login.xml" value="0.3578125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_new_transaction.xml" value="0.371875" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_profile_page.xml" value="0.3578125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_reminder.xml" value="0.371875" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/layout/fragment_search.xml" value="0.3578125" />
+        <entry key="..\:/Users/ahmet/AndroidStudioProjects/BudgetTrackerWhereisMyMoney/app/src/main/res/menu/bottom_menu.xml" value="0.371875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
