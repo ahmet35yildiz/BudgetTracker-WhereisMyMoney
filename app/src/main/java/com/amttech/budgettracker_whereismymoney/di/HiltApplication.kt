@@ -1,4 +1,8 @@
 package com.amttech.budgettracker_whereismymoney.di
 
-class HiltApplication {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class HiltApplication : Application() {
 }

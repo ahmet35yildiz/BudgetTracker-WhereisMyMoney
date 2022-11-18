@@ -8,9 +8,9 @@
         android:title="Home"
         app:showAsAction="always" />
 
-    <item android:id="@+id/searchFragment"
-        android:title="Search"
-        android:icon="@drawable/search_vector"
+    <item android:id="@+id/allTransactionsFragment"
+        android:title="AllTransactions"
+        android:icon="@drawable/transactions_vector"
         app:showAsAction="always"/>
 
     <item android:id="@+id/newTransactionFragment"

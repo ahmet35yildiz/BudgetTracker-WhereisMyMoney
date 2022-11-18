@@ -10,9 +10,7 @@
         android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.HomepageFragment"
         android:label="fragment_homepage"
         tools:layout="@layout/fragment_homepage" >
-        <action
-            android:id="@+id/action_homepageFragment_to_newTransactionFragment"
-            app:destination="@id/newTransactionFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/newTransactionFragment"
@@ -24,26 +22,20 @@
         android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.ProfilepageFragment"
         android:label="fragment_profilepage"
         tools:layout="@layout/fragment_profilepage" >
-        <action
-            android:id="@+id/action_profilepageFragment_to_newTransactionFragment"
-            app:destination="@id/newTransactionFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/reminderFragment"
         android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.ReminderFragment"
         android:label="fragment_reminder"
         tools:layout="@layout/fragment_reminder" >
-        <action
-            android:id="@+id/action_reminderFragment_to_newTransactionFragment"
-            app:destination="@id/newTransactionFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_searchFragment_to_newTransactionFragment"
-            app:destination="@id/newTransactionFragment" />
+        android:id="@+id/allTransactionsFragment"
+        android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.AllTransactionsFragment"
+        android:label="fragment_all_transactions"
+        tools:layout="@layout/fragment_all_transactions">
+
     </fragment>
 </navigation>
