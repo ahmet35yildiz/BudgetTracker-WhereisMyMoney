@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
+import java.io.Serializable
 
 @Entity(tableName = "transactions")
 
@@ -14,6 +15,5 @@ data class Transactions(
     @ColumnInfo(name = "transaction_date") @NotNull var transactionDate: String,
     @ColumnInfo(name = "transaction_amount") @NotNull var transactionAmount: Double,
     @ColumnInfo(name = "transaction_category") @NotNull var transactionCategory: String, //tekrar ediyor
-    @ColumnInfo(name = "transaction_description") @NotNull var transactionDescription: String
-) {
+    @ColumnInfo(name = "transaction_description") @NotNull var transactionDescription: String) : Serializable {
 }

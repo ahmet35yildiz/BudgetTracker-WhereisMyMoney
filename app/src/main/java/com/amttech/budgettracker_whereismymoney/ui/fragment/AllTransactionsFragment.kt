@@ -85,9 +85,9 @@ class AllTransactionsFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun deleteSelectedTransaction(transaction: Transactions) {
         Snackbar.make(
             requireView(),
-            "Are you sure you want to delete the transaction?",
+            getText(R.string.deleteTransaction),
             Snackbar.LENGTH_SHORT
-        ).setAction("YES") {
+        ).setAction(getText(R.string.yes)) {
             viewModel.delete(transaction)
         }.show()
     }

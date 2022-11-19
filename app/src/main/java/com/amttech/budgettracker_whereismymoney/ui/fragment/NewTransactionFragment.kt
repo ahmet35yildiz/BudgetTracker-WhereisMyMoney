@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import com.amttech.budgettracker_whereismymoney.R
 import com.amttech.budgettracker_whereismymoney.databinding.FragmentNewTransactionBinding
 import com.amttech.budgettracker_whereismymoney.ui.viewmodel.NewTransactionsFragmentViewModel
+import com.amttech.budgettracker_whereismymoney.util.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -88,7 +89,7 @@ class NewTransactionFragment : Fragment() {
                     R.id.chipOther -> selectedCategory = "Other"
                 }
 
-                val enteredAmount =
+                var enteredAmount =
                     if (editTextAmount.text.isNullOrEmpty()) {
                         0.0
                     } else {
@@ -96,16 +97,31 @@ class NewTransactionFragment : Fragment() {
                         else ("-" + editTextAmount.text.toString()).toDouble()
                     }
 
-                val enteredDescription = editTextDescription.text.toString()
+                var enteredDescription = editTextDescription.text.toString()
 
                 hideKeyboard()
-                buttonSaveClick(
-                    selectedType,
-                    selectedDate,
-                    enteredAmount,
-                    selectedCategory,
-                    enteredDescription
-                )
+                if (enteredAmount == 0.0 || selectedType == "" || selectedCategory == "") {
+                    showSnackbar(view,getString(R.string.fillRequiredFields))
+                }
+                else {
+                    buttonSaveClick(
+                        selectedType,
+                        selectedDate,
+                        enteredAmount,
+                        selectedCategory,
+                        enteredDescription
+                    )
+                    editTextAmount.text.clear()
+                    radioGroup.clearCheck()
+                    chipGroupExpense.clearCheck()
+                    chipGroupIncome.clearCheck()
+                    chipGroupExpense.visibility = View.GONE
+                    chipGroupIncome.visibility = View.GONE
+                    editTextDescription.text.clear()
+                    selectedDate = "$day/${month + 1}/$year"
+                    tvDate.text = selectedDate
+                    showSnackbar(view,getString(R.string.savedNewTransaction))
+                }
             }
         }
     }

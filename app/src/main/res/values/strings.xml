@@ -21,4 +21,8 @@
     <string name="chipOther">Other</string>
     <string name="buttonSave">Save</string>
     <string name="editTextDescriptionHint">Description</string>
+    <string name="savedNewTransaction">The transaction was successfully saved !</string>
+    <string name="deleteTransaction">Are you sure you want to delete the transaction?</string>
+    <string name="yes">YES</string>
+    <string name="fillRequiredFields">Please fill all required fields !</string>
 </resources>
