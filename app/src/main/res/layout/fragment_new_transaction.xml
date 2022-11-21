@@ -183,6 +183,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/radioButtonExpense" />
 
+            <RadioButton
+                android:id="@+id/radioButtonMoneybox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioButtonMoneybox" />
+
         </RadioGroup>
 
         <ImageButton

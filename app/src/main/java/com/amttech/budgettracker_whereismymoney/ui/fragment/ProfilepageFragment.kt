@@ -18,3 +18,4 @@ class ProfilepageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profilepage, container, false)
     }
 }
+

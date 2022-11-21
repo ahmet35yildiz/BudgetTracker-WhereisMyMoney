@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="radioButtonIncome">Income</string>
     <string name="radioButtonExpense">Expense</string>
+    <string name="radioButtonMoneybox">Moneybox</string>
     <string name="chipSalary">Salary</string>
     <string name="chipInvestment">Investment</string>
     <string name="chipBonus">Bonus</string>
@@ -25,4 +26,6 @@
     <string name="deleteTransaction">Are you sure you want to delete the transaction?</string>
     <string name="yes">YES</string>
     <string name="fillRequiredFields">Please fill all required fields !</string>
+    <string name="currentStatus">Current Status</string>
+
 </resources>

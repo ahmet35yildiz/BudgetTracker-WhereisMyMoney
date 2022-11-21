@@ -39,7 +39,6 @@ class AllTransactionsFragment : Fragment(), SearchView.OnQueryTextListener {
             with(binding) {
                 allTransactionsFragment = this@AllTransactionsFragment
 
-
                 val adapter = AllTransactionsAdapter(it) {
                     deleteSelectedTransaction(
                         Transactions(
