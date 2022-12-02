@@ -17,10 +17,12 @@ interface TransactionsDao {
     @Delete
     suspend fun deleteTransaction(transaction: Transactions)
 
-    @Query("SELECT * FROM transactions WHERE transaction_category like '%' || :searchWord || '%' " +
-            "OR transaction_description like '%' || :searchWord || '%' " +
-            "OR transaction_type like '%' || :searchWord || '%' " +
-            "OR transaction_date like '%' || :searchWord || '%' " +
-            "OR transaction_amount like '%' || :searchWord || '%'")
+    @Query(
+        "SELECT * FROM transactions WHERE transaction_category like '%' || :searchWord || '%' " +
+                "OR transaction_description like '%' || :searchWord || '%' " +
+                "OR transaction_type like '%' || :searchWord || '%' " +
+                "OR transaction_date like '%' || :searchWord || '%' " +
+                "OR transaction_amount like '%' || :searchWord || '%'"
+    )
     suspend fun searchTransaction(searchWord: String): List<Transactions>
 }

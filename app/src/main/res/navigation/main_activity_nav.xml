@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/homepageFragment">
+    app:startDestination="@id/tabsFragment">
 
     <fragment
         android:id="@+id/homepageFragment"
@@ -38,4 +38,9 @@
         tools:layout="@layout/fragment_all_transactions">
 
     </fragment>
+    <fragment
+        android:id="@+id/tabsFragment"
+        android:name="com.amttech.budgettracker_whereismymoney.ui.fragment.TabsFragment"
+        android:label="TabsFragment"
+        tools:layout="@layout/fragment_tabs"/>
 </navigation>

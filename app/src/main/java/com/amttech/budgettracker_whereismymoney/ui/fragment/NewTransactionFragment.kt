@@ -2,6 +2,7 @@ package com.amttech.budgettracker_whereismymoney.ui.fragment
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,9 @@ import java.util.*
 class NewTransactionFragment : Fragment() {
     private lateinit var binding: FragmentNewTransactionBinding
     private val viewModel: NewTransactionsFragmentViewModel by viewModels()
+
+    private lateinit var sharedPref: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +39,11 @@ class NewTransactionFragment : Fragment() {
 
         with(binding) {
             newTransactionObject = this@NewTransactionFragment
+
+            sharedPref = requireActivity().getSharedPreferences(PREFS_FILENAME, 0)
+
+            editTextMoneyboxName.setText(sharedPref.getString(PREF_KEY_MONEYBOX_NAME, ""))
+            editTextMoneyboxAmount.setText(sharedPref.getString(PREF_KEY_MONEYBOX_AMOUNT, ""))
 
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
@@ -55,10 +64,45 @@ class NewTransactionFragment : Fragment() {
             radioButtonIncome.setOnClickListener {
                 chipGroupExpense.visibility = View.GONE
                 chipGroupIncome.visibility = View.VISIBLE
+                editTextAmount.visibility = View.VISIBLE
+                tvDate.visibility = View.VISIBLE
+                imageButtonCalendar.visibility = View.VISIBLE
+                editTextDescription.visibility = View.VISIBLE
+                buttonSave.visibility = View.VISIBLE
+                textInputLayoutMoneyboxName.visibility = View.GONE
+                textInputLayoutMoneyboxAmount.visibility = View.GONE
+                textInputLayoutMoneyboxNewPrice.visibility = View.GONE
+                buttonSaveMoneybox.visibility = View.GONE
+                buttonAddMoneybox.visibility = View.GONE
+
             }
             radioButtonExpense.setOnClickListener {
                 chipGroupExpense.visibility = View.VISIBLE
                 chipGroupIncome.visibility = View.GONE
+                editTextAmount.visibility = View.VISIBLE
+                tvDate.visibility = View.VISIBLE
+                imageButtonCalendar.visibility = View.VISIBLE
+                editTextDescription.visibility = View.VISIBLE
+                buttonSave.visibility = View.VISIBLE
+                textInputLayoutMoneyboxName.visibility = View.GONE
+                textInputLayoutMoneyboxAmount.visibility = View.GONE
+                textInputLayoutMoneyboxNewPrice.visibility = View.GONE
+                buttonSaveMoneybox.visibility = View.GONE
+                buttonAddMoneybox.visibility = View.GONE
+            }
+            radioButtonMoneybox.setOnClickListener {
+                textInputLayoutMoneyboxName.visibility = View.VISIBLE
+                textInputLayoutMoneyboxAmount.visibility = View.VISIBLE
+                textInputLayoutMoneyboxNewPrice.visibility = View.VISIBLE
+                buttonSaveMoneybox.visibility = View.VISIBLE
+                buttonAddMoneybox.visibility = View.VISIBLE
+                chipGroupExpense.visibility = View.GONE
+                chipGroupIncome.visibility = View.GONE
+                editTextAmount.visibility = View.GONE
+                tvDate.visibility = View.GONE
+                imageButtonCalendar.visibility = View.GONE
+                editTextDescription.visibility = View.GONE
+                buttonSave.visibility = View.GONE
             }
 
             buttonSave.setOnClickListener {
@@ -101,9 +145,8 @@ class NewTransactionFragment : Fragment() {
 
                 hideKeyboard()
                 if (enteredAmount == 0.0 || selectedType == "" || selectedCategory == "") {
-                    showSnackbar(view,getString(R.string.fillRequiredFields))
-                }
-                else {
+                    showSnackbar(view, getString(R.string.fillRequiredFields))
+                } else {
                     buttonSaveClick(
                         selectedType,
                         selectedDate,
@@ -120,7 +163,74 @@ class NewTransactionFragment : Fragment() {
                     editTextDescription.text.clear()
                     selectedDate = "$day/${month + 1}/$year"
                     tvDate.text = selectedDate
-                    showSnackbar(view,getString(R.string.savedNewTransaction))
+                    editTextMoneyboxNewAmount.text?.clear()
+                    showSnackbar(view, getString(R.string.savedNewTransaction))
+                }
+            }
+
+            buttonSaveMoneybox.setOnClickListener {
+                hideKeyboard()
+
+                if (editTextMoneyboxName.text!!.isEmpty() || editTextMoneyboxAmount.text!!.isEmpty()) {
+                    showSnackbar(view, getString(R.string.fillRequiredFields))
+                } else {
+                    sharedPref.edit()
+                        .putString(PREF_KEY_MONEYBOX_NAME, editTextMoneyboxName.text.toString())
+                        .apply()
+                    sharedPref.edit()
+                        .putString(PREF_KEY_MONEYBOX_AMOUNT, editTextMoneyboxAmount.text.toString())
+                        .apply()
+                    sharedPref.edit().putString(PREF_KEY_MONEYBOX_NEW_AMOUNT, "0").apply()
+
+                    editTextAmount.text.clear()
+                    radioGroup.clearCheck()
+                    chipGroupExpense.clearCheck()
+                    chipGroupIncome.clearCheck()
+                    chipGroupExpense.visibility = View.GONE
+                    chipGroupIncome.visibility = View.GONE
+                    editTextDescription.text.clear()
+                    selectedDate = "$day/${month + 1}/$year"
+                    tvDate.text = selectedDate
+                    editTextMoneyboxNewAmount.text?.clear()
+                    buttonAddMoneybox.visibility = View.GONE
+                    buttonSaveMoneybox.visibility = View.GONE
+                    textInputLayoutMoneyboxName.visibility = View.GONE
+                    textInputLayoutMoneyboxAmount.visibility = View.GONE
+                    textInputLayoutMoneyboxNewPrice.visibility = View.GONE
+                    showSnackbar(view, getString(R.string.savedNewMoneybox))
+                }
+            }
+
+            buttonAddMoneybox.setOnClickListener {
+
+                hideKeyboard()
+
+                if (editTextMoneyboxNewAmount.text!!.isEmpty()) {
+                    showSnackbar(view, getString(R.string.fillRequiredFields))
+                } else {
+                    var enteredNewAmount = editTextMoneyboxNewAmount.text.toString().toInt()
+                    sharedPref.getString(PREF_KEY_MONEYBOX_NEW_AMOUNT, "0")?.toInt()?.let {
+                        sharedPref.edit().putString(
+                            PREF_KEY_MONEYBOX_NEW_AMOUNT,
+                            (it + enteredNewAmount).toString()
+                        ).apply()
+                    }
+                    editTextMoneyboxNewAmount.text?.clear()
+                    editTextAmount.text.clear()
+                    radioGroup.clearCheck()
+                    chipGroupExpense.clearCheck()
+                    chipGroupIncome.clearCheck()
+                    chipGroupExpense.visibility = View.GONE
+                    chipGroupIncome.visibility = View.GONE
+                    editTextDescription.text.clear()
+                    selectedDate = "$day/${month + 1}/$year"
+                    tvDate.text = selectedDate
+                    buttonAddMoneybox.visibility = View.GONE
+                    buttonSaveMoneybox.visibility = View.GONE
+                    textInputLayoutMoneyboxName.visibility = View.GONE
+                    textInputLayoutMoneyboxAmount.visibility = View.GONE
+                    textInputLayoutMoneyboxNewPrice.visibility = View.GONE
+                    showSnackbar(view, getString(R.string.addedNewAmount))
                 }
             }
         }
@@ -147,5 +257,12 @@ class NewTransactionFragment : Fragment() {
         val imm =
             requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
+    }
+
+    companion object {
+        const val PREFS_FILENAME = "com.amttech.budgettracker_whereismymoney.prefs"
+        const val PREF_KEY_MONEYBOX_NAME = "moneyboxName"
+        const val PREF_KEY_MONEYBOX_AMOUNT = "moneyboxAmount"
+        const val PREF_KEY_MONEYBOX_NEW_AMOUNT = "moneyboxNewAmount"
     }
 }

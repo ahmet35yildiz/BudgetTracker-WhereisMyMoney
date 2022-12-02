@@ -12,6 +12,8 @@ class HomepageFragmentViewModel @Inject constructor(private var btRepo: Transact
     ViewModel() {
 
     var lastTransactionsList = MutableLiveData<List<Transactions>>()
+    var lastTransactionsListMonth = MutableLiveData<List<Transactions>>()
+    var lastTransactionsListYear = MutableLiveData<List<Transactions>>()
 
     init {
         installLastTransactions()
@@ -20,5 +22,7 @@ class HomepageFragmentViewModel @Inject constructor(private var btRepo: Transact
     fun installLastTransactions() {
         btRepo.showTransactions()
         lastTransactionsList = btRepo.transactionsList
+        lastTransactionsListMonth = btRepo.transactionsListMonthly
+        lastTransactionsListYear = btRepo.transactionsListYearly
     }
 }

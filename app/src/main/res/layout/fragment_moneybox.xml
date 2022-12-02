@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="sharedPrefObject"
+            type="android.content.SharedPreferences" />
+        <variable
+            name="moneyboxAdapter"
+            type="com.amttech.budgettracker_whereismymoney.ui.adapter.MoneyboxAdapter" />
+        <variable
+            name="moneyboxObject"
+            type="com.amttech.budgettracker_whereismymoney.ui.fragment.MoneyboxFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.MoneyboxFragment">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChartMoneybox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="256dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.github.mikephil.charting.charts.PieChart>
+
+        <TextView
+            android:id="@+id/textViewMoneyboxName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{moneyboxObject.moneyboxName}"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMoneyboxAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewMoneyboxAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{moneyboxObject.moneyboxAmount}"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMoneyboxNewAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMoneyboxName" />
+
+        <TextView
+            android:id="@+id/textViewMoneyboxNewAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{moneyboxObject.moneyboxNewAmount}"
+            app:layout_constraintBottom_toTopOf="@+id/pieChartMoneybox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMoneyboxAmount" />
+
+        <TextView
+            android:id="@+id/textViewMName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/moneyboxName"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewMoneyboxName"
+            app:layout_constraintEnd_toStartOf="@+id/textViewMoneyboxName"
+            app:layout_constraintTop_toTopOf="@+id/textViewMoneyboxName" />
+
+        <TextView
+            android:id="@+id/textViewMAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/moneyboxAmount"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewMoneyboxAmount"
+            app:layout_constraintEnd_toStartOf="@+id/textViewMoneyboxAmount"
+            app:layout_constraintTop_toTopOf="@+id/textViewMoneyboxAmount" />
+
+        <TextView
+            android:id="@+id/textViewMNewAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/collectedAmount"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewMoneyboxNewAmount"
+            app:layout_constraintEnd_toStartOf="@+id/textViewMoneyboxNewAmount"
+            app:layout_constraintTop_toTopOf="@+id/textViewMoneyboxNewAmount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -25,7 +25,7 @@
             app:layout_constraintBottom_toTopOf="@+id/pieChartExpenses"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
 
         </com.github.mikephil.charting.charts.HorizontalBarChart>
 
@@ -33,7 +33,7 @@
             android:id="@+id/pieChartExpenses"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="128dp"
             app:layout_constraintBottom_toTopOf="@+id/rvLastTransactions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -46,12 +46,11 @@
             android:id="@+id/pieChartIncomes"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="64dp"
             app:layout_constraintBottom_toTopOf="@+id/rvLastTransactions"
             app:layout_constraintEnd_toStartOf="@+id/pieChartExpenses"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/horizontalBarChart">
 
         </com.github.mikephil.charting.charts.PieChart>
 
@@ -59,13 +58,42 @@
             android:id="@+id/rvLastTransactions"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="384dp"
             android:adapter="@{lastTransactionsAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pieChartExpenses"
+            app:layout_constraintTop_toTopOf="parent"
             app:reverseLayout="true"
             app:stackFromEnd="true" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/radioButtonAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/allTransactions" />
+
+            <RadioButton
+                android:id="@+id/radioButtonYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/yearlyTransactions" />
+
+            <RadioButton
+                android:id="@+id/radioButtonMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/monthlyTransactions" />
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

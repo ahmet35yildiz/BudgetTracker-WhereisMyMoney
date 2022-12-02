@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "670750823502",
+    "project_id": "budgettracker-whereismymoney",
+    "storage_bucket": "budgettracker-whereismymoney.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670750823502:android:da974a9940afaa6d821f1f",
+        "android_client_info": {
+          "package_name": "com.amttech.budgettracker_whereismymoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670750823502-jt337u4ffibd6h5a23hnoot8ndb8bh01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNyRBRhl1b_dFoK3ekvfns7NMtZ3N17M8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670750823502-jt337u4ffibd6h5a23hnoot8ndb8bh01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

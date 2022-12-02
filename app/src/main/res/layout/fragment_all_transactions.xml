@@ -39,8 +39,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarAllTransactions"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupTime"
             app:reverseLayout="true"
             app:stackFromEnd="true" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarAllTransactions">
+
+            <RadioButton
+                android:id="@+id/radioButtonAllTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/allTransactions" />
+
+            <RadioButton
+                android:id="@+id/radioButtonYearlyTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/yearlyTransactions" />
+
+            <RadioButton
+                android:id="@+id/radioButtonMonthlyTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/monthlyTransactions" />
+
+        </RadioGroup>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

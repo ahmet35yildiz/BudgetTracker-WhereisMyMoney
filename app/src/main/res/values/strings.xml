@@ -27,5 +27,21 @@
     <string name="yes">YES</string>
     <string name="fillRequiredFields">Please fill all required fields !</string>
     <string name="currentStatus">Current Status</string>
-
+    <string name="moneyboxTab">MONEYBOX</string>
+    <string name="transactionsTab">TRANSACTIONS</string>
+    <string name="moneyboxName">Moneybox Name:</string>
+    <string name="moneyboxAmount">Moneybox Amount:</string>
+    <string name="collectedAmount">Collected Amount:</string>
+    <string name="moneyboxNewPrice">Add New Amount</string>
+    <string name="buttonAdd">Add</string>
+    <string name="deficientAmount">Deficient Amount</string>
+    <string name="intheMoneybox">In the Moneybox</string>
+    <string name="addedNewAmount">The specified amount has been added to Moneybox !</string>
+    <string name="savedNewMoneybox">New moneybox created !</string>
+    <string name="reminderTitle">Title</string>
+    <string name="reminderMessage">Message</string>
+    <string name="buttonSchedule">SCHEDULE NOTIFICATION</string>
+    <string name="allTransactions">All Transactions</string>
+    <string name="yearlyTransactions">Yearly</string>
+    <string name="monthlyTransactions">Monthly</string>
 </resources>

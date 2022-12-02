@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="moneyboxFragmentObject"
+            type="com.amttech.budgettracker_whereismymoney.ui.fragment.MoneyboxFragment" />
+        <variable
             name="newTransactionObject"
             type="com.amttech.budgettracker_whereismymoney.ui.fragment.NewTransactionFragment" />
     </data>
@@ -27,10 +30,11 @@
             android:hint="@string/editTextAmountHint"
             android:inputType="numberDecimal"
             android:minHeight="48dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupExpense"
@@ -41,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipGroupIncome"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAmount"
             app:selectionRequired="true"
             app:singleSelection="true">
 
@@ -126,7 +130,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAmount"
             app:selectionRequired="true"
             app:singleSelection="true">
 
@@ -169,7 +173,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextAmount">
+            app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
                 android:id="@+id/radioButtonIncome"
@@ -197,6 +201,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:src="@drawable/calendar_vector"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tvDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -209,6 +214,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonCalendar"
             app:layout_constraintHorizontal_bias="0.5"
@@ -223,6 +229,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:text="@string/buttonSave"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -238,10 +245,92 @@
             android:ems="10"
             android:hint="@string/editTextDescriptionHint"
             android:inputType="textPersonName"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/buttonSave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutMoneyboxName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="128dp"
+            android:hint="@string/moneyboxName"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAmount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextMoneyboxName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutMoneyboxAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="128dp"
+            android:hint="@string/moneyboxAmount"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMoneyboxName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextMoneyboxAmount"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonSaveMoneybox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="@string/buttonSave"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutMoneyboxAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayoutMoneyboxName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutMoneyboxNewPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="128dp"
+            android:hint="@string/moneyboxNewPrice"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMoneyboxAmount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextMoneyboxNewAmount"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonAddMoneybox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="@string/buttonAdd"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutMoneyboxNewPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayoutMoneyboxNewPrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

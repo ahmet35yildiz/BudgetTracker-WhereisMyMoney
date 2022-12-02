@@ -10,6 +10,8 @@ import javax.inject.Inject
 class AllTransactionsFragmentViewModel @Inject constructor(private var btRepo: TransactionsDaoRepository) :
     ViewModel() {
     var allTransactionsList = btRepo.transactionsList
+    var transactionsListMonth = btRepo.transactionsListMonthly
+    var transactionsListYear = btRepo.transactionsListYearly
 
     init {
         installAllTransactions()
@@ -18,6 +20,8 @@ class AllTransactionsFragmentViewModel @Inject constructor(private var btRepo: T
     fun installAllTransactions() {
         btRepo.showTransactions()
         allTransactionsList = btRepo.transactionsList
+        transactionsListMonth = btRepo.transactionsListMonthly
+        transactionsListYear = btRepo.transactionsListYearly
     }
 
     fun delete(transaction: Transactions) {

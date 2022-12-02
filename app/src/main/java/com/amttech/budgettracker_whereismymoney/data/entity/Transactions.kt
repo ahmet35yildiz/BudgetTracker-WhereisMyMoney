@@ -15,5 +15,6 @@ data class Transactions(
     @ColumnInfo(name = "transaction_date") @NotNull var transactionDate: String,
     @ColumnInfo(name = "transaction_amount") @NotNull var transactionAmount: Double,
     @ColumnInfo(name = "transaction_category") @NotNull var transactionCategory: String, //tekrar ediyor
-    @ColumnInfo(name = "transaction_description") @NotNull var transactionDescription: String) : Serializable {
+    @ColumnInfo(name = "transaction_description") @NotNull var transactionDescription: String
+) : Serializable {
 }

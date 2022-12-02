@@ -34,25 +34,57 @@ class AllTransactionsFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.allTransactionsList.observe(viewLifecycleOwner) {
+        with(binding){
 
-            with(binding) {
-                allTransactionsFragment = this@AllTransactionsFragment
-
-                val adapter = AllTransactionsAdapter(it) {
-                    deleteSelectedTransaction(
-                        Transactions(
-                            it.transactionId,
-                            it.transactionType,
-                            it.transactionDate,
-                            it.transactionAmount,
-                            it.transactionCategory,
-                            it.transactionDescription
-                        )
-                    )
-                }
-                allTransactionsAdapter = adapter
+            radioButtonAllTransactions.setOnClickListener {
+                observeAllTransactions()
             }
+
+            radioButtonYearlyTransactions.setOnClickListener {
+                observeYearlyTransactions()
+            }
+
+            radioButtonMonthlyTransactions.setOnClickListener {
+                observeMonthlyTransactions()
+            }
+        }
+    }
+
+    private fun observeAllTransactions(){
+        viewModel.allTransactionsList.observe(viewLifecycleOwner) {
+            setupRV(it)
+        }
+    }
+
+    private fun observeYearlyTransactions(){
+        viewModel.transactionsListYear.observe(viewLifecycleOwner){
+            setupRV(it)
+        }
+    }
+
+    private fun observeMonthlyTransactions(){
+        viewModel.transactionsListMonth.observe(viewLifecycleOwner){
+            setupRV(it)
+        }
+    }
+
+    private fun setupRV(requireTransactionsList: List<Transactions>) {
+        with(binding) {
+            allTransactionsFragment = this@AllTransactionsFragment
+
+            val adapter = AllTransactionsAdapter(requireTransactionsList) {
+                deleteSelectedTransaction(
+                    Transactions(
+                        it.transactionId,
+                        it.transactionType,
+                        it.transactionDate,
+                        it.transactionAmount,
+                        it.transactionCategory,
+                        it.transactionDescription
+                    )
+                )
+            }
+            allTransactionsAdapter = adapter
         }
     }
 
