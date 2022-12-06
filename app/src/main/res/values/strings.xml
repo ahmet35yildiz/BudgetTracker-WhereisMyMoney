@@ -1,7 +1,6 @@
 <resources>
-    <string name="app_name">BudgetTracker - WhereisMyMoney</string>
+    <string name="app_name">Budget Tracker - Where is My Money ?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="radioButtonIncome">Income</string>
     <string name="radioButtonExpense">Expense</string>
     <string name="radioButtonMoneybox">Moneybox</string>
@@ -40,8 +39,9 @@
     <string name="savedNewMoneybox">New moneybox created !</string>
     <string name="reminderTitle">Title</string>
     <string name="reminderMessage">Message</string>
-    <string name="buttonSchedule">SCHEDULE NOTIFICATION</string>
+    <string name="buttonSchedule">SCHEDULE REMINDER</string>
     <string name="allTransactions">All Transactions</string>
     <string name="yearlyTransactions">Yearly</string>
     <string name="monthlyTransactions">Monthly</string>
+    <string name="setLanguage">SET LANGUAGE</string>
 </resources>

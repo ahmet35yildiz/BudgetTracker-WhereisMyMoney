@@ -109,35 +109,35 @@ class NewTransactionFragment : Fragment() {
 
                 var selectedType = ""
                 when (radioGroup.checkedRadioButtonId) {
-                    R.id.radioButtonIncome -> selectedType = "Income"
-                    R.id.radioButtonExpense -> selectedType = "Expense"
+                    R.id.radioButtonIncome -> selectedType = getString(R.string.radioButtonIncome)
+                    R.id.radioButtonExpense -> selectedType = getString(R.string.radioButtonExpense)
                 }
 
                 var selectedCategory = ""
                 when (chipGroupIncome.checkedChipId) {
-                    R.id.chipSalary -> selectedCategory = "Salary"
-                    R.id.chipInvestment -> selectedCategory = "Investment"
-                    R.id.chipAllowance -> selectedCategory = "Allowance"
-                    R.id.chipBonus -> selectedCategory = "Bonus"
+                    R.id.chipSalary -> selectedCategory = getString(R.string.chipSalary)
+                    R.id.chipInvestment -> selectedCategory = getString(R.string.chipInvestment)
+                    R.id.chipAllowance -> selectedCategory = getString(R.string.chipAllowance)
+                    R.id.chipBonus -> selectedCategory = getString(R.string.chipBonus)
                 }
                 when (chipGroupExpense.checkedChipId) {
-                    R.id.chipFood -> selectedCategory = "Food"
-                    R.id.chipShopping -> selectedCategory = "Shopping"
-                    R.id.chipBill -> selectedCategory = "Bill"
-                    R.id.chipSelfDevelopment -> selectedCategory = "Self Development"
-                    R.id.chipTransportationFee -> selectedCategory = "Transportation Fee"
-                    R.id.chipEntertainment -> selectedCategory = "Enterainment"
-                    R.id.chipHealth -> selectedCategory = "Health"
-                    R.id.chipHoliday -> selectedCategory = "Holiday"
-                    R.id.chipKids -> selectedCategory = "Kids"
-                    R.id.chipOther -> selectedCategory = "Other"
+                    R.id.chipFood -> selectedCategory = getString(R.string.chipFood)
+                    R.id.chipShopping -> selectedCategory = getString(R.string.chipShopping)
+                    R.id.chipBill -> selectedCategory = getString(R.string.chipBill)
+                    R.id.chipSelfDevelopment -> selectedCategory = getString(R.string.chipSelfDevelopment)
+                    R.id.chipTransportationFee -> selectedCategory = getString(R.string.chipTransportationFee)
+                    R.id.chipEntertainment -> selectedCategory = getString(R.string.chipEntertainment)
+                    R.id.chipHealth -> selectedCategory = getString(R.string.chipHealth)
+                    R.id.chipHoliday -> selectedCategory = getString(R.string.chipHoliday)
+                    R.id.chipKids -> selectedCategory = getString(R.string.chipKids)
+                    R.id.chipOther -> selectedCategory = getString(R.string.chipOther)
                 }
 
                 var enteredAmount =
                     if (editTextAmount.text.isNullOrEmpty()) {
                         0.0
                     } else {
-                        if (selectedType == "Income") editTextAmount.text.toString().toDouble()
+                        if (selectedType == getString(R.string.radioButtonIncome)) editTextAmount.text.toString().toDouble()
                         else ("-" + editTextAmount.text.toString()).toDouble()
                     }
 

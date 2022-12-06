@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bütçe Takipçisi - Param Nerede ?</string>
+    <string name="radioButtonIncome">Gelir</string>
+    <string name="radioButtonExpense">Gider</string>
+    <string name="radioButtonMoneybox">Kumbara</string>
+    <string name="chipSalary">Maaş</string>
+    <string name="chipInvestment">Yatırım</string>
+    <string name="chipBonus">Bonus</string>
+    <string name="chipAllowance">Ödenek</string>
+    <string name="editTextAmountHint">Tutar</string>
+    <string name="chipFood">Gıda</string>
+    <string name="chipSelfDevelopment">Kişisel Gelişim</string>
+    <string name="chipBill">Fatura</string>
+    <string name="chipShopping">Alışveriş</string>
+    <string name="chipEntertainment">Eğlence</string>
+    <string name="chipHoliday">Tatil</string>
+    <string name="chipHealth">Sağlık</string>
+    <string name="chipTransportationFee">Ulaşım</string>
+    <string name="chipKids">Çocuk</string>
+    <string name="chipOther">Diğer</string>
+    <string name="buttonSave">Kaydet</string>
+    <string name="editTextDescriptionHint">Açıklama</string>
+    <string name="savedNewTransaction">İşlem başarıyla kaydedildi !</string>
+    <string name="deleteTransaction">İşlemi silmek istediğinize emin misiniz ?</string>
+    <string name="yes">EVET</string>
+    <string name="fillRequiredFields">Lütfen tüm gerekli alanları doldurunuz !</string>
+    <string name="currentStatus">Şu anki durum</string>
+    <string name="moneyboxTab">KUMBARA</string>
+    <string name="transactionsTab">İŞLEMLER</string>
+    <string name="moneyboxName">Kumbara Adı:</string>
+    <string name="moneyboxAmount">Kumbara Tutarı:</string>
+    <string name="collectedAmount">Biriktirilen Tutar:</string>
+    <string name="moneyboxNewPrice">Yeni Tutar Ekle</string>
+    <string name="buttonAdd">Ekle</string>
+    <string name="deficientAmount">Gerekli Tutar</string>
+    <string name="intheMoneybox">Kumbaradaki</string>
+    <string name="addedNewAmount">Belirtilen tutar kumbaraya eklendi !</string>
+    <string name="savedNewMoneybox">Yeni kumbara oluşturuldu !</string>
+    <string name="reminderTitle">Başlık</string>
+    <string name="reminderMessage">Mesaj</string>
+    <string name="buttonSchedule">HATIRLATMA AYARLA</string>
+    <string name="allTransactions">Tüm İşlemler</string>
+    <string name="yearlyTransactions">Yıllık</string>
+    <string name="monthlyTransactions">Aylık</string>
+    <string name="setLanguage">DİL SEÇ</string>
+</resources>

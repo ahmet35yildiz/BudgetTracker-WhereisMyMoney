@@ -34,35 +34,23 @@ class AllTransactionsFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
+        binding.allTransactionsFragment = this@AllTransactionsFragment
 
-            radioButtonAllTransactions.setOnClickListener {
-                observeAllTransactions()
-            }
-
-            radioButtonYearlyTransactions.setOnClickListener {
-                observeYearlyTransactions()
-            }
-
-            radioButtonMonthlyTransactions.setOnClickListener {
-                observeMonthlyTransactions()
-            }
-        }
     }
 
-    private fun observeAllTransactions(){
+    fun observeAllTransactions(){
         viewModel.allTransactionsList.observe(viewLifecycleOwner) {
             setupRV(it)
         }
     }
 
-    private fun observeYearlyTransactions(){
+    fun observeYearlyTransactions(){
         viewModel.transactionsListYear.observe(viewLifecycleOwner){
             setupRV(it)
         }
     }
 
-    private fun observeMonthlyTransactions(){
+    fun observeMonthlyTransactions(){
         viewModel.transactionsListMonth.observe(viewLifecycleOwner){
             setupRV(it)
         }
@@ -70,7 +58,6 @@ class AllTransactionsFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun setupRV(requireTransactionsList: List<Transactions>) {
         with(binding) {
-            allTransactionsFragment = this@AllTransactionsFragment
 
             val adapter = AllTransactionsAdapter(requireTransactionsList) {
                 deleteSelectedTransaction(

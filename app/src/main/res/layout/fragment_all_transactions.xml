@@ -56,18 +56,21 @@
                 android:id="@+id/radioButtonAllTransactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> allTransactionsFragment.observeAllTransactions()}"
                 android:text="@string/allTransactions" />
 
             <RadioButton
                 android:id="@+id/radioButtonYearlyTransactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> allTransactionsFragment.observeYearlyTransactions()}"
                 android:text="@string/yearlyTransactions" />
 
             <RadioButton
                 android:id="@+id/radioButtonMonthlyTransactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> allTransactionsFragment.observeMonthlyTransactions()}"
                 android:text="@string/monthlyTransactions" />
 
         </RadioGroup>

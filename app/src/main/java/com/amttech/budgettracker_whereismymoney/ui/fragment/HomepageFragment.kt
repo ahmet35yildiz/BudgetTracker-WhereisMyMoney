@@ -32,34 +32,22 @@ class HomepageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
-            radioButtonAll.setOnClickListener {
-                observeAllTransactions()
-            }
-
-            radioButtonYear.setOnClickListener {
-                observeYearlyTransactions()
-            }
-
-            radioButtonMonth.setOnClickListener {
-                observeMonthlyTransactions()
-            }
-        }
+        binding.homepageFragment = this@HomepageFragment
     }
 
-    private fun observeAllTransactions() {
+    fun observeAllTransactions() {
         viewModel.lastTransactionsList.observe(viewLifecycleOwner) {
             setupRV(it)
         }
     }
 
-    private fun observeYearlyTransactions() {
+    fun observeYearlyTransactions() {
         viewModel.lastTransactionsListYear.observe(viewLifecycleOwner) {
             setupRV(it)
         }
     }
 
-    private fun observeMonthlyTransactions() {
+    fun observeMonthlyTransactions() {
         viewModel.lastTransactionsListMonth.observe(viewLifecycleOwner) {
             setupRV(it)
         }
@@ -67,7 +55,6 @@ class HomepageFragment : Fragment() {
 
     private fun setupRV(requireTransactionsList: List<Transactions>) {
         with(binding) {
-            homepageFragment = this@HomepageFragment
 
             //Incomes Pie Chart
             val pieListIncomes = ArrayList<PieEntry>()
@@ -78,17 +65,17 @@ class HomepageFragment : Fragment() {
 
             for (i in requireTransactionsList) {
                 when (i.transactionCategory) {
-                    "Salary" -> salary += i.transactionAmount.toFloat()
-                    "Investment" -> investment += i.transactionAmount.toFloat()
-                    "Allowance" -> allowance += i.transactionAmount.toFloat()
-                    "Bonus" -> bonus += i.transactionAmount.toFloat()
+                    getString(R.string.chipSalary) -> salary += i.transactionAmount.toFloat()
+                    getString(R.string.chipInvestment) -> investment += i.transactionAmount.toFloat()
+                    getString(R.string.chipAllowance) -> allowance += i.transactionAmount.toFloat()
+                    getString(R.string.chipBonus) -> bonus += i.transactionAmount.toFloat()
                 }
             }
             with(pieListIncomes) {
-                add(PieEntry(salary, "Salary"))
-                add(PieEntry(investment, "Investment"))
-                add(PieEntry(allowance, "Allowance"))
-                add(PieEntry(bonus, "Bonus"))
+                add(PieEntry(salary, getString(R.string.chipSalary)))
+                add(PieEntry(investment, getString(R.string.chipInvestment)))
+                add(PieEntry(allowance, getString(R.string.chipAllowance)))
+                add(PieEntry(bonus, getString(R.string.chipBonus)))
             }
 
             val colorSetIncomes = ArrayList<Int>()
@@ -128,30 +115,30 @@ class HomepageFragment : Fragment() {
 
             for (i in requireTransactionsList) {
                 when (i.transactionCategory) {
-                    "Food" -> food += i.transactionAmount.toFloat()
-                    "Shopping" -> shopping += i.transactionAmount.toFloat()
-                    "Bill" -> bill += i.transactionAmount.toFloat()
-                    "Self Development" -> selfDevelopment += i.transactionAmount.toFloat()
-                    "Transportation Fee" -> transportationFee += i.transactionAmount.toFloat()
-                    "Entertainment" -> entertainment += i.transactionAmount.toFloat()
-                    "Health" -> health += i.transactionAmount.toFloat()
-                    "Holiday" -> holiday += i.transactionAmount.toFloat()
-                    "Kids" -> kids += i.transactionAmount.toFloat()
-                    "Other" -> other += i.transactionAmount.toFloat()
+                    getString(R.string.chipFood) -> food += i.transactionAmount.toFloat()
+                    getString(R.string.chipShopping) -> shopping += i.transactionAmount.toFloat()
+                    getString(R.string.chipBill) -> bill += i.transactionAmount.toFloat()
+                    getString(R.string.chipSelfDevelopment) -> selfDevelopment += i.transactionAmount.toFloat()
+                    getString(R.string.chipTransportationFee) -> transportationFee += i.transactionAmount.toFloat()
+                    getString(R.string.chipEntertainment) -> entertainment += i.transactionAmount.toFloat()
+                    getString(R.string.chipHealth) -> health += i.transactionAmount.toFloat()
+                    getString(R.string.chipHoliday) -> holiday += i.transactionAmount.toFloat()
+                    getString(R.string.chipKids) -> kids += i.transactionAmount.toFloat()
+                    getString(R.string.chipOther) -> other += i.transactionAmount.toFloat()
                 }
             }
 
             with(pieListExpenses) {
-                add(PieEntry(-food, "Food"))
-                add(PieEntry(-shopping, "Shopping"))
-                add(PieEntry(-bill, "Bill"))
-                add(PieEntry(-selfDevelopment, "Self Development"))
-                add(PieEntry(-transportationFee, "Transportation Fee"))
-                add(PieEntry(-entertainment, "Entertainment"))
-                add(PieEntry(-health, "Health"))
-                add(PieEntry(-holiday, "Holiday"))
-                add(PieEntry(-kids, "Kids"))
-                add(PieEntry(-other, "Other"))
+                add(PieEntry(-food, getString(R.string.chipFood)))
+                add(PieEntry(-shopping, getString(R.string.chipShopping)))
+                add(PieEntry(-bill, getString(R.string.chipBill)))
+                add(PieEntry(-selfDevelopment, getString(R.string.chipSelfDevelopment)))
+                add(PieEntry(-transportationFee, getString(R.string.chipTransportationFee)))
+                add(PieEntry(-entertainment, getString(R.string.chipEntertainment)))
+                add(PieEntry(-health, getString(R.string.chipHealth)))
+                add(PieEntry(-holiday, getString(R.string.chipHoliday)))
+                add(PieEntry(-kids, getString(R.string.chipKids)))
+                add(PieEntry(-other, getString(R.string.chipOther)))
             }
 
             val colorSetExpenses = ArrayList<Int>()
@@ -187,7 +174,7 @@ class HomepageFragment : Fragment() {
             var incomes = 0f
             var expenses = 0f
             for (i in requireTransactionsList) {
-                if (i.transactionType == "Income") {
+                if (i.transactionType == getString(R.string.radioButtonIncome)) {
                     incomes += i.transactionAmount.toFloat()
                 } else {
                     expenses += i.transactionAmount.toFloat()

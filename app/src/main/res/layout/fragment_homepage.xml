@@ -81,18 +81,21 @@
                 android:id="@+id/radioButtonAll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> homepageFragment.observeAllTransactions()}"
                 android:text="@string/allTransactions" />
 
             <RadioButton
                 android:id="@+id/radioButtonYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> homepageFragment.observeYearlyTransactions()}"
                 android:text="@string/yearlyTransactions" />
 
             <RadioButton
                 android:id="@+id/radioButtonMonth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> homepageFragment.observeMonthlyTransactions()}"
                 android:text="@string/monthlyTransactions" />
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
